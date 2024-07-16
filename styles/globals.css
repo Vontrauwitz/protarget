@@ -1,7 +1,31 @@
+/* Importar Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Definir fuentes personalizadas */
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/AeonikProTRIAL-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/AeonikProTRIAL-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/AeonikProTRIAL-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Definir colores de root */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -26,6 +50,7 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+/* Utilidad personalizada */
 @layer utilities {
   .text-balance {
     text-wrap: balance;

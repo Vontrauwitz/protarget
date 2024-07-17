@@ -1,20 +1,30 @@
 // pages/prueba.js
-import Head from 'next/head';
-import { FacebookIcon, WhatsappIcon, HomeIcon, UpArrowIcon } from '../components/Svg';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function Prueba() {
+  const { t } = useTranslation('common');
+
   return (
     <>
-      <Head>
-        <title>Prueba de Fuentes</title>
-      </Head>
-      <div className="min-h-screen flex flex-col items-center justify-center space-y-8">
-        <h1 className="text-3xl">Texto con la fuente predeterminada (Default)</h1>
-        <h1 className="text-3xl font-aeonik font-bold">Texto con la fuente Aeonik Bold</h1>
-        <h1 className="text-3xl font-aeonik font-light">Texto con la fuente Aeonik Light</h1>
-        <h1 className="text-3xl font-aeonik font-normal">Texto con la fuente Aeonik Regular</h1>
-        <UpArrowIcon/>
-      </div>
+      <Header />
+      <main className="py-16 bg-gray-50">
+        <section className="container mx-auto px-4">
+          <h1 className="text-5xl font-bold text-center mb-12 font-aeonik-bold text-pantone-purple">{t('greeting')}</h1>
+          <p className="text-gray-600 text-center font-aeonik-regular">{t('description')}</p>
+        </section>
+      </main>
+      <Footer />
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 }

@@ -1,0 +1,19 @@
+{
+    "greeting": "Bienvenue chez ProTarget",
+    "services": "Nos Services",
+    "testimonials": "Témoignages",
+    "productManagement": "Gestion de Produit",
+    "productManagementDesc": "Stratégie et gestion de projet",
+    "productEngineering": "Ingénierie de Produit",
+    "productEngineeringDesc": "Développement web et mobile, stratégie technique, DevOps",
+    "productDesign": "Conception de Produit",
+    "productDesignDesc": "Recherche et stratégie de conception, conception centrée sur l'utilisateur, conception visuelle et illustration",
+    "testingQA": "Tests & QA",
+    "testingQADesc": "Développement axé sur les tests, tests crowdsourcés, tests automatisés",
+    "hostingSupport": "Hébergement & Support",
+    "hostingSupportDesc": "Hébergement géré, mises à jour des produits, maintenance préventive",
+    "testimonialsText1": "ProTarget a transformé notre vision en réalité avec une exécution sans faille.",
+    "testimonialsText2": "Pour moi, tout était excellent, ce qui signifie que ProTarget est bon dans ce qu'il fait.",
+    "testimonialsText3": "ProTarget a une base solide, un bon plan et des mécanismes de réponse fonctionnels."
+  }
+  

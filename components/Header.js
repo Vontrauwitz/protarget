@@ -52,8 +52,8 @@ export default function Header() {
           <Link href="/about" className="text-white hover:text-pantone-lavender">{t('aboutUs')}</Link>
           <Link href="/services" className="text-white hover:text-pantone-lavender">{t('services')}</Link>
           <Link href="/case-studies" className="text-white hover:text-pantone-lavender">{t('caseStudies')}</Link>
-          <Link href="/blog" className="text-white hover:text-pantone-lavender">{t('blog')}</Link>
-          <Link href="/careers" className="text-white hover:text-pantone-lavender">{t('careers')}</Link>
+          {/* <Link href="/blog" className="text-white hover:text-pantone-lavender">{t('blog')}</Link>
+          <Link href="/careers" className="text-white hover:text-pantone-lavender">{t('careers')}</Link> */}
           <Link href="/contact" className="text-white hover:text-pantone-lavender">{t('contact')}</Link>
           <div className="relative ml-4">
             <button

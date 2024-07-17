@@ -1,0 +1,13 @@
+{
+  "contactUs": "Contáctanos",
+  "name": "Nombre",
+  "namePlaceholder": "Ingresa tu nombre",
+  "email": "Correo Electrónico",
+  "emailPlaceholder": "Ingresa tu correo electrónico",
+  "message": "Mensaje",
+  "messagePlaceholder": "Ingresa tu mensaje",
+  "sendMessage": "Enviar Mensaje",
+  "ourLocation": "Nuestra Ubicación",
+  "thankYou": "¡Gracias!",
+  "messageReceived": "Hemos recibido tu mensaje. Nos pondremos en contacto contigo pronto."
+}

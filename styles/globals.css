@@ -85,4 +85,30 @@ body {
   .language-selector-flag {
     @apply h-3.5 w-3.5 rounded-full me-2;
   }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 3s ease-in-out;
+}
+  
+  .form-container {
+    background: white;
+    border-radius: 1em;
+    padding: 2rem;
+    box-shadow: 0px 7px 20px rgba(43, 8, 37, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-container:hover {
+    transform: translateY(-5%);
+    box-shadow: 0px 10px 25px rgba(43, 8, 37, 0.3);
+  }
 }

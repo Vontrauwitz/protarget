@@ -1,0 +1,14 @@
+{
+    "contactUs": "Contact Us",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "message": "Message",
+    "messagePlaceholder": "Enter your message",
+    "sendMessage": "Send Message",
+    "ourLocation": "Our Location",
+    "thankYou": "Thank You!",
+    "messageReceived": "Your message has been received. We'll get back to you soon."
+  }
+  

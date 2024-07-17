@@ -55,4 +55,13 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* Clase personalizada para zoom de imagen */
+  .image-zoom {
+    @apply relative w-32 h-32 rounded-full mx-auto mb-4 shadow-lg overflow-hidden;
+  }
+
+  .image-zoom img {
+    @apply object-cover object-top transform scale-150; /* Ajusta el valor de scale para hacer más o menos zoom */
+  }
 }

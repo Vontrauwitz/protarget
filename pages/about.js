@@ -1,25 +1,30 @@
 // pages/about.js
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Image from 'next/image';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 
 export default function About() {
+  const { t } = useTranslation('about');
+
   return (
     <>
       <Header />
       <main className="py-16 bg-gray-50">
         <section className="container mx-auto px-4">
-          <h2 className="text-5xl font-bold text-center mb-12 font-aeonik-bold text-pantone-purple">Sobre Nosotros</h2>
+          <h2 className="text-5xl font-bold text-center mb-12 font-aeonik-bold text-pantone-purple">{t('title')}</h2>
           <div className="flex flex-col lg:flex-row items-center mb-16">
-            <img src="/images/office_desk.jpg" alt="Team" className="w-full lg:w-1/2 rounded-lg shadow-lg mb-8 lg:mb-0 lg:mr-8" />
+            <Image src="/images/office_desk.jpg" alt="Team" width={800} height={600} className="w-full lg:w-1/2 rounded-lg shadow-lg mb-8 lg:mb-0 lg:mr-8" />
             <div className="text-gray-700 text-center lg:text-left lg:w-1/2 font-aeonik-regular">
               <p className="mb-6">
-                ProTarget lanza y evoluciona productos digitales, desde sitios web y aplicaciones hasta servicios y herramientas empresariales.
+                {t('description1')}
               </p>
               <p className="mb-6">
-                Somos un equipo diverso, enfocado en el crecimiento y comprometido con ayudar a los fundadores a tener éxito.
+                {t('description2')}
               </p>
               <p>
-                Nuestra misión es entregar soluciones tecnológicas de alta calidad que no solo cumplan, sino que superen las expectativas de nuestros clientes.
+                {t('description3')}
               </p>
             </div>
           </div>
@@ -27,27 +32,35 @@ export default function About() {
         
         <section className="bg-pantone-lavender py-16">
           <div className="container mx-auto px-4">
-            <h3 className="text-4xl font-bold text-center mb-12 font-aeonik-bold text-pantone-green">Nuestro Equipo</h3>
+            <h3 className="text-4xl font-bold text-center mb-12 font-aeonik-bold text-pantone-green">{t('team')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center">
-                <img src="/images/ph.jpg" alt="Team Member 1" className="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg" />
-                <h4 className="text-xl font-bold font-aeonik-bold text-pantone-purple">Jean Philippe San Louis</h4>
-                <p className="text-gray-700 font-aeonik-regular">CEO & Fundador</p>
+                <div className="image-zoom">
+                  <Image src="/images/ph.jpg" alt="Jean Philippe San Louis" layout="fill" />
+                </div>
+                <h4 className="text-xl font-bold font-aeonik-bold text-pantone-purple">Jean Philippe Saint Louis</h4>
+                <p className="text-gray-700 font-aeonik-regular">{t('member1')}</p>
               </div>
               <div className="text-center">
-                <img src="/images/member2.jpg" alt="Team Member 2" className="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg" />
+                <div className="image-zoom">
+                  <Image src="/images/userNotFound.jpg" alt="Nombre 2" layout="fill" />
+                </div>
                 <h4 className="text-xl font-bold font-aeonik-bold text-pantone-purple">Nombre 2</h4>
-                <p className="text-gray-700 font-aeonik-regular">CTO</p>
+                <p className="text-gray-700 font-aeonik-regular">{t('member2')}</p>
               </div>
               <div className="text-center">
-                <img src="/images/member3.jpg" alt="Team Member 3" className="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg" />
+                <div className="image-zoom">
+                  <Image src="/images/userNotFound.jpg" alt="Nombre 3" layout="fill" />
+                </div>
                 <h4 className="text-xl font-bold font-aeonik-bold text-pantone-purple">Nombre 3</h4>
-                <p className="text-gray-700 font-aeonik-regular">Director de Marketing</p>
+                <p className="text-gray-700 font-aeonik-regular">{t('member3')}</p>
               </div>
               <div className="text-center">
-                <img src="/images/member4.jpg" alt="Team Member 4" className="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg" />
+                <div className="image-zoom">
+                  <Image src="/images/userNotFound.jpg" alt="Nombre 4" layout="fill" />
+                </div>
                 <h4 className="text-xl font-bold font-aeonik-bold text-pantone-purple">Nombre 4</h4>
-                <p className="text-gray-700 font-aeonik-regular">Diseñador Principal</p>
+                <p className="text-gray-700 font-aeonik-regular">{t('member4')}</p>
               </div>
             </div>
           </div>
@@ -55,19 +68,19 @@ export default function About() {
         
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h3 className="text-4xl font-bold text-center mb-12 font-aeonik-bold text-pantone-purple">Nuestros Valores</h3>
+            <h3 className="text-4xl font-bold text-center mb-12 font-aeonik-bold text-pantone-purple">{t('values')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center font-aeonik-regular text-gray-700">
               <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                <h4 className="text-2xl font-bold mb-4 font-aeonik-bold text-pantone-green">Innovación</h4>
-                <p>Buscamos constantemente nuevas formas de innovar y mejorar nuestros procesos y productos.</p>
+                <h4 className="text-2xl font-bold mb-4 font-aeonik-bold text-pantone-green">{t('innovation')}</h4>
+                <p>{t('description1')}</p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                <h4 className="text-2xl font-bold mb-4 font-aeonik-bold text-pantone-green">Calidad</h4>
-                <p>Nos comprometemos a entregar productos y servicios de la más alta calidad a nuestros clientes.</p>
+                <h4 className="text-2xl font-bold mb-4 font-aeonik-bold text-pantone-green">{t('quality')}</h4>
+                <p>{t('description2')}</p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                <h4 className="text-2xl font-bold mb-4 font-aeonik-bold text-pantone-green">Compromiso</h4>
-                <p>Estamos comprometidos con el éxito de nuestros clientes y trabajamos arduamente para lograrlo.</p>
+                <h4 className="text-2xl font-bold mb-4 font-aeonik-bold text-pantone-green">{t('commitment')}</h4>
+                <p>{t('description3')}</p>
               </div>
             </div>
           </div>
@@ -77,4 +90,12 @@ export default function About() {
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['header', 'about'])),
+    },
+  };
 }

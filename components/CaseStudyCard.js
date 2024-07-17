@@ -7,5 +7,4 @@ export default function CaseStudyCard({ title, description }) {
       </div>
     );
   }
-
   

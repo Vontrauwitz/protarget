@@ -1,25 +1,37 @@
 // pages/services.js
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ServiceCard from '../components/ServiceCard';
 
 export default function Services() {
+  const { t } = useTranslation('services');
+
   return (
     <>
       <Header />
-      <main className="py-16">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-8">Nuestros Servicios</h2>
+      <main className="min-h-screen py-16 bg-gray-50">
+        <section className="container mx-auto px-4">
+          <h2 className="text-5xl font-bold text-center mb-12 font-aeonik-bold text-pantone-purple">{t('ourServices')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ServiceCard title="Gestión de Producto" description="Estrategia y administración de proyectos" />
-            <ServiceCard title="Ingeniería de Producto" description="Desarrollo web y móvil, estrategia técnica, DevOps" />
-            <ServiceCard title="Diseño de Producto" description="Investigación y estrategia de diseño, diseño centrado en el usuario, diseño visual e ilustración" />
-            <ServiceCard title="Pruebas y QA" description="Desarrollo orientado a pruebas, pruebas crowdsourced, pruebas automatizadas" />
-            <ServiceCard title="Hosting y Soporte" description="Alojamiento gestionado, actualizaciones de productos, mantenimiento preventivo" />
+            <ServiceCard title={t('productManagement')} description={t('productManagementDesc')} tech={t('productManagementTech')} />
+            <ServiceCard title={t('productEngineering')} description={t('productEngineeringDesc')} tech={t('productEngineeringTech')} />
+            <ServiceCard title={t('productDesign')} description={t('productDesignDesc')} tech={t('productDesignTech')} />
+            <ServiceCard title={t('testingQA')} description={t('testingQADesc')} tech={t('testingQATech')} />
+            <ServiceCard title={t('hostingSupport')} description={t('hostingSupportDesc')} tech={t('hostingSupportTech')} />
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['services', 'header'])),
+    },
+  };
 }

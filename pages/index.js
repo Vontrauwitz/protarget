@@ -41,11 +41,11 @@ export default function Home() {
           <div className="container mx-auto">
             <h2 className="text-4xl font-aeonik-bold text-center mb-8">{t('services')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <ServiceCard title={t('productManagement')} description={t('productManagementDesc')} />
-              <ServiceCard title={t('productEngineering')} description={t('productEngineeringDesc')} />
-              <ServiceCard title={t('productDesign')} description={t('productDesignDesc')} />
-              <ServiceCard title={t('testingQA')} description={t('testingQADesc')} />
-              <ServiceCard title={t('hostingSupport')} description={t('hostingSupportDesc')} />
+              <ServiceCard title={t('productManagement')} description={t('productManagementDesc')} tech={t('productManagementTech')} />
+              <ServiceCard title={t('productEngineering')} description={t('productEngineeringDesc')} tech={t('productEngineeringTech')} />
+              <ServiceCard title={t('productDesign')} description={t('productDesignDesc')} tech={t('productDesignTech')} />
+              <ServiceCard title={t('testingQA')} description={t('testingQADesc')} tech={t('testingQATech')} />
+              <ServiceCard title={t('hostingSupport')} description={t('hostingSupportDesc')} tech={t('hostingSupportTech')} />
             </div>
           </div>
         </section>
@@ -77,7 +77,7 @@ export default function Home() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['index', 'header', 'heroSection'])),
+      ...(await serverSideTranslations(locale, ['index', 'header', 'heroSection', 'services'])),
     },
   };
 }

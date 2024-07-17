@@ -1,0 +1,18 @@
+{
+  "ourServices": "Nuestros Servicios",
+  "productManagement": "Gestión de Productos",
+  "productManagementDesc": "Gestionando productos de manera efectiva.",
+  "productManagementTech": "Herramientas: JIRA, Trello, Asana",
+  "productEngineering": "Ingeniería de Productos",
+  "productEngineeringDesc": "Ingeniería de productos de alta calidad.",
+  "productEngineeringTech": "Tecnologías: React, Node.js, Docker",
+  "productDesign": "Diseño de Productos",
+  "productDesignDesc": "Diseñando interfaces amigables.",
+  "productDesignTech": "Herramientas: Figma, Sketch, Adobe XD",
+  "testingQA": "Pruebas y QA",
+  "testingQADesc": "Asegurando la calidad mediante pruebas.",
+  "testingQATech": "Herramientas: Selenium, Cypress, Jest",
+  "hostingSupport": "Alojamiento y Soporte",
+  "hostingSupportDesc": "Alojamiento y soporte confiables.",
+  "hostingSupportTech": "Plataformas: AWS, Azure, Google Cloud"
+}

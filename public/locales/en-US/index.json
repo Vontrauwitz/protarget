@@ -14,5 +14,10 @@
   "hostingSupportDesc": "Managed hosting, product updates, preventive maintenance",
   "testimonialsText1": "ProTarget turned our vision into reality with flawless execution.",
   "testimonialsText2": "For me, everything was excellent, which means ProTarget is good at what it does.",
-  "testimonialsText3": "ProTarget has a solid foundation, a good plan, and functional response mechanisms."
+  "testimonialsText3": "ProTarget has a solid foundation, a good plan, and functional response mechanisms.",
+  "productManagementTech": "Tools: JIRA, Trello, Asana",
+  "productEngineeringTech": "Technologies: React, Node.js, Docker",
+  "productDesignTech": "Tools: Figma, Sketch, Adobe XD",
+  "testingQATech": "Tools: Selenium, Cypress, Jest",
+  "hostingSupportTech": "Platforms: AWS, Azure, Google Cloud"
 }

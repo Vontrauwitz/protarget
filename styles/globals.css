@@ -55,7 +55,7 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-  
+
   /* Clase personalizada para zoom de imagen */
   .image-zoom {
     @apply relative w-32 h-32 rounded-full mx-auto mb-4 shadow-lg overflow-hidden;
@@ -63,5 +63,26 @@ body {
 
   .image-zoom img {
     @apply object-cover object-top transform scale-150; /* Ajusta el valor de scale para hacer más o menos zoom */
+  }
+
+  /* Estilos personalizados para el selector de idiomas */
+  .language-selector-button {
+    @apply flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600;
+  }
+
+  .language-selector-dropdown {
+    @apply z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700;
+  }
+
+  .language-selector-option {
+    @apply inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white;
+  }
+
+  .language-selector-option div {
+    @apply inline-flex items-center;
+  }
+
+  .language-selector-flag {
+    @apply h-3.5 w-3.5 rounded-full me-2;
   }
 }

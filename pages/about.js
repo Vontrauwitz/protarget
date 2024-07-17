@@ -10,7 +10,7 @@ export default function About() {
         <section className="container mx-auto px-4">
           <h2 className="text-5xl font-bold text-center mb-12 font-aeonik-bold text-pantone-purple">Sobre Nosotros</h2>
           <div className="flex flex-col lg:flex-row items-center mb-16">
-            <img src="/images/team.jpg" alt="Team" className="w-full lg:w-1/2 rounded-lg shadow-lg mb-8 lg:mb-0 lg:mr-8" />
+            <img src="/images/office_desk.jpg" alt="Team" className="w-full lg:w-1/2 rounded-lg shadow-lg mb-8 lg:mb-0 lg:mr-8" />
             <div className="text-gray-700 text-center lg:text-left lg:w-1/2 font-aeonik-regular">
               <p className="mb-6">
                 ProTarget lanza y evoluciona productos digitales, desde sitios web y aplicaciones hasta servicios y herramientas empresariales.
@@ -30,8 +30,8 @@ export default function About() {
             <h3 className="text-4xl font-bold text-center mb-12 font-aeonik-bold text-pantone-green">Nuestro Equipo</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center">
-                <img src="/images/member1.jpg" alt="Team Member 1" className="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg" />
-                <h4 className="text-xl font-bold font-aeonik-bold text-pantone-purple">Nombre 1</h4>
+                <img src="/images/ph.jpg" alt="Team Member 1" className="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg" />
+                <h4 className="text-xl font-bold font-aeonik-bold text-pantone-purple">Jean Philippe San Louis</h4>
                 <p className="text-gray-700 font-aeonik-regular">CEO & Fundador</p>
               </div>
               <div className="text-center">

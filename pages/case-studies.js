@@ -1,12 +1,11 @@
 // pages/case-studies.js
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Layout from '../components/Layout';
 import CaseStudyCard from '../components/CaseStudyCard';
 
 export default function CaseStudies() {
   return (
-    <>
-      <Header />
+    <Layout>
       <main className="py-16">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-8">Proyectos Destacados</h2>
@@ -17,7 +16,14 @@ export default function CaseStudies() {
           </div>
         </div>
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'header'])),
+    },
+  };
 }

@@ -1,9 +1,8 @@
 // pages/contact.js
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { useState } from 'react';
+import Layout from '../components/Layout';
 
 export default function Contact() {
   const { t } = useTranslation('contact');
@@ -17,13 +16,12 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would handle the form submission, e.g., send it to an API
+    // Aquí manejarías el envío del formulario, por ejemplo, enviarlo a una API
     setSubmitted(true);
   };
 
   return (
-    <>
-      <Header />
+    <Layout>
       <main className="min-h-screen py-16 bg-gray-50">
         <section className="container mx-auto px-4">
           <h2 className="text-5xl font-bold text-center mb-12 font-aeonik-bold text-pantone-purple animate-fade-in">{t('contactUs')}</h2>
@@ -102,8 +100,7 @@ export default function Contact() {
           </div>
         </section>
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
 }
 

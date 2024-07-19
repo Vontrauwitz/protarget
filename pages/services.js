@@ -1,16 +1,14 @@
 // pages/services.js
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Layout from '../components/Layout';
 import ServiceCard from '../components/ServiceCard';
 
 export default function Services() {
   const { t } = useTranslation('services');
 
   return (
-    <>
-      <Header />
+    <Layout>
       <main className="min-h-screen py-16 bg-gray-50">
         <section className="container mx-auto px-4">
           <h2 className="text-5xl font-bold text-center mb-12 font-aeonik-bold text-pantone-purple">{t('ourServices')}</h2>
@@ -23,8 +21,7 @@ export default function Services() {
           </div>
         </section>
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
 }
 

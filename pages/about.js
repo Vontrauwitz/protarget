@@ -1,16 +1,14 @@
 // pages/about.js
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import Layout from '../components/Layout';
 
 export default function About() {
   const { t } = useTranslation('about');
 
   return (
-    <>
-      <Header />
+    <Layout>
       <main className="py-16 bg-gray-50">
         <section className="container mx-auto px-4">
           <h2 className="text-5xl font-bold text-center mb-12 font-aeonik-bold text-pantone-purple">{t('title')}</h2>
@@ -35,29 +33,29 @@ export default function About() {
             <h3 className="text-4xl font-bold text-center mb-12 font-aeonik-bold text-pantone-green">{t('team')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="image-zoom">
-                  <Image src="/images/ph.jpg" alt="Jean Philippe San Louis" layout="fill" />
+                <div className="image-zoom relative w-48 h-48 mx-auto mb-4">
+                  <Image src="/images/ph.jpg" alt="Jean Philippe San Louis" layout="fill" className="rounded-full object-cover" />
                 </div>
                 <h4 className="text-xl font-bold font-aeonik-bold text-pantone-purple">Jean Philippe Saint Louis</h4>
                 <p className="text-gray-700 font-aeonik-regular">{t('member1')}</p>
               </div>
               <div className="text-center">
-                <div className="image-zoom">
-                  <Image src="/images/userNotFound.jpg" alt="Nombre 2" layout="fill" />
+                <div className="image-zoom relative w-48 h-48 mx-auto mb-4">
+                  <Image src="/images/userNotFound.jpg" alt="Nombre 2" layout="fill" className="rounded-full object-cover" />
                 </div>
                 <h4 className="text-xl font-bold font-aeonik-bold text-pantone-purple">Nombre 2</h4>
                 <p className="text-gray-700 font-aeonik-regular">{t('member2')}</p>
               </div>
               <div className="text-center">
-                <div className="image-zoom">
-                  <Image src="/images/userNotFound.jpg" alt="Nombre 3" layout="fill" />
+                <div className="image-zoom relative w-48 h-48 mx-auto mb-4">
+                  <Image src="/images/userNotFound.jpg" alt="Nombre 3" layout="fill" className="rounded-full object-cover" />
                 </div>
                 <h4 className="text-xl font-bold font-aeonik-bold text-pantone-purple">Nombre 3</h4>
                 <p className="text-gray-700 font-aeonik-regular">{t('member3')}</p>
               </div>
               <div className="text-center">
-                <div className="image-zoom">
-                  <Image src="/images/userNotFound.jpg" alt="Nombre 4" layout="fill" />
+                <div className="image-zoom relative w-48 h-48 mx-auto mb-4">
+                  <Image src="/images/userNotFound.jpg" alt="Nombre 4" layout="fill" className="rounded-full object-cover" />
                 </div>
                 <h4 className="text-xl font-bold font-aeonik-bold text-pantone-purple">Nombre 4</h4>
                 <p className="text-gray-700 font-aeonik-regular">{t('member4')}</p>
@@ -87,8 +85,7 @@ export default function About() {
         </section>
         
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
 }
 

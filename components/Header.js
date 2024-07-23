@@ -1,5 +1,5 @@
 // components/Header.js
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
@@ -13,6 +13,7 @@ export default function Header() {
   const { locale, locales } = router;
   const [isOpen, setIsOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const changeLanguage = (selectedLocale) => {
     router.push(router.pathname, router.asPath, { locale: selectedLocale });
@@ -22,6 +23,19 @@ export default function Header() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const getFlagIcon = (loc) => {
     switch (loc) {
@@ -44,7 +58,7 @@ export default function Header() {
   return (
     <header className="bg-pantone-purple shadow-lg relative h-16">
       <div className="container mx-auto px-4 h-full flex justify-end items-center">
-        <div className="absolute left-4 -bottom-14 z-10">
+        <div className="absolute left-4 -bottom-12 z-10">
           <Logo />
         </div>
         <nav className="hidden md:flex items-center space-x-4 font-aeonik-regular text-sm">
@@ -99,7 +113,7 @@ export default function Header() {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden fixed top-0 right-0 left-0 bottom-0 bg-pantone-purple bg-opacity-90 z-40 flex flex-col space-y-4 px-4 py-4">
+        <div ref={menuRef} className="md:hidden absolute right-0 top-16 bg-pantone-purple bg-opacity-90 z-40 p-4 rounded-bl-lg shadow-lg">
           <nav className="flex flex-col space-y-4">
             <Link href="/about" className="text-white hover:text-pantone-lavender" onClick={() => setIsMenuOpen(false)}>{t('aboutUs')}</Link>
             <Link href="/services" className="text-white hover:text-pantone-lavender" onClick={() => setIsMenuOpen(false)}>{t('services')}</Link>

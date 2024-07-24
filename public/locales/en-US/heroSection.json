@@ -1,6 +1,10 @@
 {
-    "headline": "We transform your ideas into high-quality digital products",
-    "subheadline": "Producing high-quality software that meets or exceeds expectations",
-    "contactUs": "Contact Us"
-  }
-  
+  "headline": "We transform your ideas into high-quality digital products",
+  "subheadline": "Producing high-quality software that meets or exceeds expectations",
+  "contactUs": "Contact Us",
+  "digitalPresenceTitle": "Want to stand out in the digital world?",
+  "digitalPresenceDescription": "Discover how your business presents itself online. Get a free analysis of your digital presence now.",
+  "checkPresenceButton": "Check my online presence",
+  "ourServices": "Our Services",
+  "seoWidgetTitle": "Analyze Your Online Presence"
+}

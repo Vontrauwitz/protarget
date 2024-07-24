@@ -18,6 +18,7 @@ export default function Header() {
   const changeLanguage = (selectedLocale) => {
     router.push(router.pathname, router.asPath, { locale: selectedLocale });
     setIsOpen(false);
+    setIsMenuOpen(false);
   };
 
   const toggleMenu = () => {
@@ -64,7 +65,6 @@ export default function Header() {
         <nav className="hidden md:flex items-center space-x-4 font-aeonik-regular text-sm">
           <Link href="/about" className="text-white hover:text-pantone-lavender">{t('aboutUs')}</Link>
           <Link href="/services" className="text-white hover:text-pantone-lavender">{t('services')}</Link>
-          <Link href="/case-studies" className="text-white hover:text-pantone-lavender">{t('caseStudies')}</Link>
           <Link href="/contact" className="text-white hover:text-pantone-lavender">{t('contact')}</Link>
           <a href="tel:+15146191358" className="text-white hover:text-pantone-lavender flex items-center text-xs">
             <FaPhone className="mr-1" /> +1(514)619-1358
@@ -113,15 +113,41 @@ export default function Header() {
         </div>
       </div>
       {isMenuOpen && (
-        <div ref={menuRef} className="md:hidden absolute right-0 top-16 bg-pantone-purple bg-opacity-90 z-40 p-4 rounded-bl-lg shadow-lg">
+        <div ref={menuRef} className="md:hidden absolute right-0 top-16 bg-pantone-purple bg-opacity-90 z-40 p-4 rounded-bl-lg shadow-lg w-full">
           <nav className="flex flex-col space-y-4">
             <Link href="/about" className="text-white hover:text-pantone-lavender" onClick={() => setIsMenuOpen(false)}>{t('aboutUs')}</Link>
             <Link href="/services" className="text-white hover:text-pantone-lavender" onClick={() => setIsMenuOpen(false)}>{t('services')}</Link>
-            <Link href="/case-studies" className="text-white hover:text-pantone-lavender" onClick={() => setIsMenuOpen(false)}>{t('caseStudies')}</Link>
             <Link href="/contact" className="text-white hover:text-pantone-lavender" onClick={() => setIsMenuOpen(false)}>{t('contact')}</Link>
             <a href="tel:+15146191358" className="text-white hover:text-pantone-lavender flex items-center">
               <FaPhone className="mr-2" /> +1(514)619-1358
             </a>
+            <div className="relative mt-4">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="bg-pantone-green text-white font-aeonik-regular px-2 py-1 rounded flex items-center w-full justify-between"
+              >
+                <span className="flex items-center">
+                  {getFlagIcon(locale)} {getLocaleName(locale)}
+                </span>
+                <svg className="w-4 h-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.92l3.71-3.7a.75.75 0 111.06 1.06l-4.25 4.24a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                </svg>
+              </button>
+              {isOpen && (
+                <ul className="mt-2 w-full bg-white border border-gray-300 rounded shadow-lg">
+                  {locales.map((loc) => (
+                    <li key={loc}>
+                      <button
+                        onClick={() => changeLanguage(loc)}
+                        className="flex items-center px-4 py-2 hover:bg-gray-100 w-full text-left text-black"
+                      >
+                        {getFlagIcon(loc)} {getLocaleName(loc)}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </nav>
         </div>
       )}

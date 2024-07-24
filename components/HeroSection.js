@@ -2,7 +2,7 @@
 import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import SEOScript from '../components/SEOScript';
+
 
 export default function HeroSection() {
   const { t } = useTranslation('heroSection');
@@ -72,7 +72,6 @@ export default function HeroSection() {
           </button>
         </div>
       </div>
-      <SEOScript />
     </section>
   );
 }

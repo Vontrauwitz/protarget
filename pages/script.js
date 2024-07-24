@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from '../components/Layout';
 
 const Page = () => {
-  const [containerHeight, setContainerHeight] = useState('auto');
+  const [containerHeight, setContainerHeight] = useState('600px');
   const { t } = useTranslation('page');
 
   useEffect(() => {
@@ -24,9 +24,7 @@ const Page = () => {
       }
     };
 
-    script.onload = () => {
-      setTimeout(adjustHeight, 1000); // Ajusta la altura después de 1 segundo para dar tiempo al widget a cargarse
-    };
+    script.onload = adjustHeight;
     window.addEventListener('resize', adjustHeight);
 
     return () => {
@@ -44,11 +42,11 @@ const Page = () => {
           <h1 className="text-3xl font-extrabold text-gray-900 text-center mb-8">
             {t('title')}
           </h1>
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200 transition-all duration-300 ease-in-out" style={{ minHeight: '100px' }}>
-            <div className="p-6" style={{ height: containerHeight }}>
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+            <div className="p-6" style={{ minHeight: containerHeight }}>
               <div 
                 id="widget-container" 
-                className="w-full h-full"
+                className="w-full"
               />
             </div>
           </div>

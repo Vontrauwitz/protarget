@@ -8,16 +8,40 @@ export default function Contact() {
   const { t } = useTranslation('contact');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí manejarías el envío del formulario, por ejemplo, enviarlo a una API
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        throw new Error(data.error || 'Error al enviar el mensaje');
+      }
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -34,12 +58,13 @@ export default function Contact() {
                       {t('name')}
                     </label>
                     <input
-                      className="w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pantone-purple focus:border-transparent transition-colors"
+                      className="w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pantone-purple focus:border-transparent transition-colors text-black"
                       id="name"
                       type="text"
                       placeholder={t('namePlaceholder')}
                       value={formData.name}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                   <div>
@@ -47,12 +72,13 @@ export default function Contact() {
                       {t('email')}
                     </label>
                     <input
-                      className="w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pantone-purple focus:border-transparent transition-colors"
+                      className="w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pantone-purple focus:border-transparent transition-colors text-black"
                       id="email"
                       type="email"
                       placeholder={t('emailPlaceholder')}
                       value={formData.email}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                   <div>
@@ -60,22 +86,25 @@ export default function Contact() {
                       {t('message')}
                     </label>
                     <textarea
-                      className="w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pantone-purple focus:border-transparent transition-colors"
+                      className="w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pantone-purple focus:border-transparent transition-colors text-black"
                       id="message"
                       rows="5"
                       placeholder={t('messagePlaceholder')}
                       value={formData.message}
                       onChange={handleChange}
+                      required
                     ></textarea>
                   </div>
                   <div className="flex justify-center">
                     <button
-                      className="py-2 px-6 bg-pantone-purple text-white font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pantone-purple transition-transform transform hover:-translate-y-1"
+                      className="py-2 px-6 bg-pantone-purple text-white font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pantone-purple transition-transform transform hover:-translate-y-1 disabled:opacity-50"
                       type="submit"
+                      disabled={isSubmitting}
                     >
-                      {t('sendMessage')}
+                      {isSubmitting ? t('sending') : t('sendMessage')}
                     </button>
                   </div>
+                  {error && <p className="text-red-500 text-center">{error}</p>}
                 </form>
               ) : (
                 <div className="text-center">
@@ -88,7 +117,7 @@ export default function Contact() {
               <h3 className="text-2xl font-bold text-pantone-purple mb-4">{t('ourLocation')}</h3>
               <div className="overflow-hidden rounded shadow-md transform transition-transform hover:scale-105">
                 <iframe
-                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11168.951643560347!2d-73.73622401284182!3d45.58576190000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc922ff474a2bdf%3A0x7bea0f1ab34d4ecd!2sPro%20Target%20Inc!5e0!3m2!1ses-419!2sca!4v1721248911750!5m2!1ses-419!2sca" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11168.951643560347!2d-73.73622401284182!3d45.58576190000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc922ff474a2bdf%3A0x7bea0f1ab34d4ecd!2sPro%20Target%20Inc!5e0!3m2!1ses-419!2sca!4v1721248911750!5m2!1ses-419!2sca" 
                   width="100%"
                   height="450"
                   allowFullScreen=""
